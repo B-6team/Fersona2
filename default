@@ -1,0 +1,115 @@
+# =========================================================
+# 1) HTTP → HTTPS 리다이렉트 (도메인 기준)
+# =========================================================
+server {
+    if ($host = www.fersona.cloud) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = fersona.cloud) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    listen [::]:80;
+
+    server_name fersona.cloud www.fersona.cloud;
+
+    # certbot 인증을 위해 필요함
+    location /.well-known/acme-challenge/ {
+        root /var/www/html;
+    }
+
+    return 301 https://$host$request_uri;
+
+
+
+
+}
+
+# =========================================================
+# 2) HTTPS 서버 (정식 SSL 인증서 적용)
+# =========================================================
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name fersona.cloud www.fersona.cloud;
+
+    # -----------------------------
+    # ✅ Let's Encrypt 인증서 적용
+    # -----------------------------
+    ssl_certificate /etc/letsencrypt/live/fersona.cloud/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/fersona.cloud/privkey.pem; # managed by Certbot
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    # =========================================================
+    # React Frontend 정적 파일
+    # =========================================================
+    root /home/ubuntu/Frontend1/build;
+    index index.html;
+
+    client_max_body_size 10G;
+
+    location / {
+        try_files $uri /index.html;
+    }
+
+    # =========================================================
+    # FastAPI 백엔드 프록시
+    # =========================================================
+    location /fersona/api/ {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_connect_timeout 600s;
+        proxy_read_timeout 600s;
+        proxy_send_timeout 600s;
+        send_timeout 600s;
+
+        proxy_buffering off;
+    }
+
+    # =========================================================
+    # 업로드된 파일 직접 서빙
+    # =========================================================
+    location /fersona/api/uploads/ {
+        alias /home/ubuntu/fersona/uploads/;
+
+        add_header Access-Control-Allow-Origin "*" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Range" always;
+        add_header Access-Control-Expose-Headers "Content-Length, Content-Range" always;
+        autoindex on;
+    }
+
+    # =========================================================
+    # 에러 페이지
+    # =========================================================
+    error_page 502 /502.html;
+    location = /502.html {
+        internal;
+        return 502 "⚠️  Backend 연결 오류 (502 Bad Gateway)";
+    }
+
+    error_page 504 /504.html;
+    location = /504.html {
+        internal;
+        return 504 "⚠️  요청 시간이 초과되었습니다 (504 Gateway Timeout)";
+    }
+
+    access_log /var/log/nginx/fersona_access.log;
+    error_log /var/log/nginx/fersona_error.log;
+
+
+}
+
