@@ -1,0 +1,120 @@
+.reportContainer {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #f0f2f5;
+}
+
+.reportNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.topLeftNav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.reportLogo {
+  background: #e9ecef;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reportBackButton {
+  background-color: #1d3461;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: opacity 0.2s;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.reportBackButton:hover {
+  opacity: 0.8;
+}
+
+/* ✅ 버튼 두 개를 가로 정렬되게 수정 */
+.centerControls {
+  display: flex;
+  flex-direction: row;   /* 기존 column → row */
+  align-items: center;
+  gap: 15px;             /* 버튼 사이 간격 */
+}
+
+.reportMainButton {
+  background: #fff;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reportMainButton:hover {
+  background-color: #f0f0f0;
+}
+
+.navPlaceholder {
+  width: 150px;
+}
+
+.contentBgGray {
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contentBgWhite {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.contentBgBlue {
+  background-color: #e3eaf3;
+  border-radius: 10px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+}
+
+.feedbackContentArea {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedbackLabel {
+  align-self: center;
+  font-weight: 600;
+}

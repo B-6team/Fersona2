@@ -1,0 +1,269 @@
+/* --- Global & Fonts --- */
+body {
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+}
+
+/* ===== 1. New MainPage.js Styles ===== */
+.new-main-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.new-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.new-main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.menu-button {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 18px 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.menu-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #ccc;
+}
+
+.menu-icon {
+  font-size: 20px;
+}
+
+
+/* ===== 2. Report Page Styles ===== */
+.report-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #E0E0E0 0%, #FFFFFF 50%);
+}
+
+.report-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.top-left-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.report-logo {
+  background: #e9ecef;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.report-back-button {
+  background-color: #1d3461;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: opacity 0.2s;
+  text-align: center;
+  white-space: nowrap;
+}
+.report-back-button:hover {
+  opacity: 0.8;
+}
+
+.center-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.report-main-button {
+  background: #fff;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.report-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+.report-tab-btn {
+  background-color: #f0f0f0;
+  color: #666;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.report-tab-btn.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.nav-placeholder {
+  width: 150px; 
+}
+
+.content-bg-gray {
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.content-bg-white {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+}
+.content-bg-blue {
+  background-color: #e3eaf3;
+  border-radius: 10px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+}
+
+.feedback-content-area {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedback-label {
+  align-self: center;
+  font-weight: 600;
+}
+
+
+/* ===== 3. VideoPlayerPage.js Styles (수정) ===== */
+.video-page-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.video-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.video-header button {
+  background-color: #1d3461;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* 영상 대신 들어갈 안내 문구 영역 스타일 */
+.video-placeholder {
+  width: 100%;
+  height: 60vh; /* 화면 높이의 60% 만큼 크기 지정 */
+  background-color: #e9ecef;
+  border: 2px dashed #ced4da;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #6c757d;
+  font-weight: 500;
+  box-sizing: border-box;
+}

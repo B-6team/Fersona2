@@ -1,0 +1,44 @@
+.videoPageContainer {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.videoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.videoHeader h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.videoHeader button {
+  background-color: #1d3461;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.videoPlaceholder {
+  width: 100%;
+  height: 60vh;
+  background-color: #e9ecef;
+  border: 2px dashed #ced4da;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #6c757d;
+  font-weight: 500;
+  box-sizing: border-box;
+}
